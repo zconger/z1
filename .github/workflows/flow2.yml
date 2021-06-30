@@ -1,7 +1,7 @@
 on:
   workflow_run:
     workflows:
-      - flow1
+      - flow-one
     types:
       - completed   # Only run once the workflows listed above are completed
 
