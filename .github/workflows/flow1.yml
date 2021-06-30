@@ -1,0 +1,9 @@
+on:
+  push:
+
+jobs:
+  flow-one:
+    runs-on: ubuntu-20.04
+    steps:
+      - id: step-that-succeeds
+        run: bash -c "exit 0"

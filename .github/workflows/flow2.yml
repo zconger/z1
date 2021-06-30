@@ -1,0 +1,18 @@
+on:
+  workflow_run:
+    workflows:
+      - flow1
+    types:
+      - completed   # Only run once the workflows listed above are completed
+
+jobs:
+  on-success:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-20.04
+    steps:
+      - run: echo 'Yay! The flow1 workflow was successful!'
+  on-failure:
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    runs-on: ubuntu-20.04
+    steps:
+      - run: echo 'Darn! The flow1 workflow was a failure!'
